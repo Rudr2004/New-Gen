@@ -170,7 +170,6 @@ function Hero() {
           for licensing to elite IVF centers globally. Differentiate your clinic.
           Grow your practice.
         </p>
-
         <div className="hero__ctas">
           <button className="btn btn--primary btn--lg" onClick={() => scrollTo("contact")}>
             Explore Licensing Opportunities
