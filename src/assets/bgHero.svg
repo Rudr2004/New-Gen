@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="softCyan" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8feff"/>
+      <stop offset="60%" stop-color="#eaf9fb"/>
+      <stop offset="100%" stop-color="#e6fbfd"/>
+    </linearGradient>
+    <radialGradient id="spotLight" cx="70%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="35%" stop-color="#dff8fb" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#d4f3f7" stop-opacity="0.06"/>
+    </radialGradient>
+    <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#bff0ee" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#9ee8e5" stop-opacity="0.02"/>
+    </radialGradient>
+    <filter id="softBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feBlend in="SourceGraphic" in2="b" mode="normal"/>
+    </filter>
+    <filter id="glass" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.6"/>
+      </feComponentTransfer>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="g1"/>
+      <feMerge>
+        <feMergeNode in="g1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="silver" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f6f9fb" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e6eef2" stop-opacity="0.6"/>
+    </linearGradient>
+    <mask id="leftClear">
+      <rect x="0" y="0" width="960" height="1080" fill="white" />
+    </mask>
+  </defs>
+
+  <!-- Base soft white + cyan atmosphere -->
+  <rect width="1920" height="1080" fill="url(#softCyan)" />
+  <rect width="1920" height="1080" fill="url(#spotLight)" opacity="0.9" />
+
+  <!-- Subtle fog and gradient depth across the scene -->
+  <g opacity="0.6">
+    <rect x="0" y="0" width="1920" height="1080" fill="url(#spotLight)" mask="url(#leftClear)" />
+  </g>
+
+  <!-- Right-side glass orb cluster -->
+  <g transform="translate(1400,220)">
+    <circle cx="0" cy="0" r="160" fill="url(#orbGlow)" filter="url(#glow)" opacity="0.85" />
+    <circle cx="160" cy="160" r="90" fill="#ffffff" opacity="0.06" />
+    <circle cx="-120" cy="120" r="70" fill="#dff8fb" opacity="0.08" />
+    <g transform="translate(40,40)">
+      <circle cx="0" cy="0" r="54" fill="white" opacity="0.06" />
+      <circle cx="-10" cy="-8" r="28" fill="#e6fbfd" opacity="0.18" filter="url(#softBlur)"/>
+    </g>
+    <!-- glass rim -->
+    <circle cx="0" cy="0" r="162" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+  </g>
+
+  <!-- Subtle DNA wave on the right, sweeping toward center-right -->
+  <g transform="translate(1120,450) scale(1.2)" opacity="0.92">
+    <path d="M -600 0 C -480 -60 -360 60 -240 0 C -120 -60 0 60 120 0 C 240 -60 360 60 480 0"
+          fill="none" stroke="#35CFC8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" filter="url(#glow)" />
+    <path d="M -600 20 C -480 -40 -360 80 -240 20 C -120 -40 0 80 120 20 C 240 -40 360 80 480 20"
+          fill="none" stroke="#7FEDE8" stroke-width="3" opacity="0.55" />
+    <!-- Double helix hints -->
+    <g opacity="0.85">
+      <path d="M -600 -12 C -480 -72 -360 48 -240 -12 C -120 -72 0 48 120 -12 C 240 -72 360 48 480 -12"
+            fill="none" stroke="#dff8fb" stroke-width="2" opacity="0.6" />
+    </g>
+  </g>
+
+  <!-- Microfluidic flow lines (subtle) positioned toward right side -->
+  <g stroke="#cfeff0" stroke-width="1.2" opacity="0.45" fill="none">
+    <path d="M1300 900 C 1360 760 1500 680 1660 700" stroke-linecap="round"/>
+    <path d="M1200 980 C 1320 820 1550 720 1720 740" stroke-linecap="round"/>
+    <path d="M1400 760 C 1500 700 1580 740 1680 720" stroke-linecap="round"/>
+  </g>
+
+  <!-- Floating biological particles + molecular clusters -->
+  <g opacity="0.9">
+    <circle cx="1500" cy="860" r="6" fill="#e9ffff" opacity="0.9" />
+    <circle cx="1640" cy="720" r="8" fill="#c9fbf7" opacity="0.7" />
+    <circle cx="1760" cy="560" r="4" fill="#ffffff" opacity="0.65" />
+    <circle cx="1320" cy="620" r="5" fill="#dff8fb" opacity="0.6" />
+    <circle cx="1180" cy="480" r="7" fill="#e6fbfd" opacity="0.55" />
+
+    <g transform="translate(1500,500)" opacity="0.18">
+      <circle cx="0" cy="0" r="36" fill="#ffffff" />
+      <circle cx="-42" cy="12" r="18" fill="#dff8fb" />
+      <circle cx="36" cy="-20" r="10" fill="#bff0ee" />
+    </g>
+  </g>
+
+  <!-- Soft silver highlights (lines/circles) -->
+  <g stroke="url(#silver)" stroke-width="1" opacity="0.45" fill="none">
+    <circle cx="1720" cy="220" r="34" />
+    <circle cx="1600" cy="320" r="22" />
+  </g>
+
+  <!-- Rightmost depth blur layer -->
+  <g filter="url(#softBlur)" opacity="0.9">
+    <ellipse cx="1660" cy="200" rx="220" ry="120" fill="#e6fbfd" opacity="0.08" />
+  </g>
+
+  <!-- Gentle gradient fog over whole canvas to keep left side clear -->
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#spotLight)" opacity="0.36" />
+
+  <!-- Very light vertical striping / micro texture (subtle) -->
+  <g opacity="0.02">
+    <rect x="0" y="0" width="1920" height="1080" fill="url(#softCyan)" />
+  </g>
+
+</svg>
