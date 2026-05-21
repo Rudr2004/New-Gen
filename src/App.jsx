@@ -6,6 +6,7 @@ import {
   Layers, Activity, Lock, Star
 } from "lucide-react";
 import "./App.css";
+import bgHero from "./assets/bgHero.svg";
 
 /* ─── Animated Counter ─── */
 function Counter({ end, suffix = "", duration = 2000 }) {
@@ -149,6 +150,16 @@ function Hero() {
 
   return (
     <section id="home" className="hero">
+      <div
+        className="hero__background"
+        style={{
+          backgroundImage: `url(${bgHero})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <div className="hero__image-overlay" />
       <div className="hero__grid-overlay" />
       <div className="hero__strand hero__strand--1" />
       <div className="hero__strand hero__strand--2" />
@@ -164,12 +175,12 @@ function Hero() {
           <span>NASDAQ: NIVF · Licensed Technology Platform</span>
         </div>
 
-        <h1 className="hero__headline">
-          License <span className="hero__headline--accent">MicroSort</span> Technology<br />
+        <h1 className="hero__heading">
+          License <span className="hero__heading--accent">MicroSort</span> Technology<br />
           for Your Fertility Center
         </h1>
 
-        <p className="hero__sub">
+        <p className="hero__text">
           The world's most clinically validated sperm sorting platform — now available
           for licensing to elite IVF centers globally. Differentiate your clinic.
           Grow your practice.
@@ -184,9 +195,7 @@ function Hero() {
           </button>
         </div>
 
-        <div className="hero__scroll" onClick={() => scrollTo("stats")}>
-          <ChevronDown size={20} />
-        </div>
+        {/* hero scroll chevron removed per request */}
       </div>
     </section>
   );
