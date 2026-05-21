@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Btn, Label, NAVY, TEAL } from "../components/ui.jsx";
+import bgHero from "../assets/bgHero.svg";
 
 export default function Hero({ onNav }) {
   const [scrollY, setScrollY] = useState(0);
@@ -11,8 +12,18 @@ export default function Hero({ onNav }) {
   }, []);
 
   return (
-    <section id="hero" className="hero" style={{ background: `radial-gradient(ellipse 80% 60% at 60% 40%, #0d2d42 0%, ${NAVY} 60%)` }}>
-      <div className="hero__background" style={{ transform: `translateY(${scrollY * 0.25}px)` }} />
+    <section id="hero" className="hero">
+      <div
+        className="hero__background"
+        style={{
+          transform: `translateY(${scrollY * 0.25}px)`,
+            backgroundImage: `url(${bgHero})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <div className="hero__image-overlay" />
       <div className="hero__orb" style={{ transform: `translateY(${scrollY * 0.12}px)` }} />
 
       <div className="hero__content">
