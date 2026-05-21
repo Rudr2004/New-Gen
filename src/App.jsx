@@ -150,6 +150,10 @@ function Hero() {
   return (
     <section id="home" className="hero">
       <div className="hero__grid-overlay" />
+      <div className="hero__strand hero__strand--1" />
+      <div className="hero__strand hero__strand--2" />
+      <div className="hero__cell hero__cell--1" />
+      <div className="hero__cell hero__cell--2" />
       <div className="hero__orb hero__orb--1" />
       <div className="hero__orb hero__orb--2" />
       <div className="hero__orb hero__orb--3" />
